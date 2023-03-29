@@ -54,14 +54,14 @@ jobs:
         # called at most once for the workflow by the "setup" job
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: | 
-          cd ticketmaster
+          cd ticketmeister
           yarn install
 
       - name: Build app
         run: |
           cd ticketmeister
           yarn rw build
-          
+
       - name: Run tests
         run: |
           cd ticketmeister
