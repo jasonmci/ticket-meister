@@ -33,33 +33,11 @@ jobs:
           key: ${{ runner.os }}-node-18.14.2-${{ hashFiles('.nvmrc') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
       - name: Install Node.js 18.14.2
         uses: actions/setup-node@v3
         with:
           node-version: 18.14.2
-
-      - name: Cached yarn install
-        uses: c-hive/gha-yarn-cache@v2
-        with:
-          directory: ./ticketmeister
-
-      # - name: node_modules cache
-      #   id: node-modules-cache
-      #   uses: actions/cache@v3
-      #   env:
-      #     cache-name: node-modules-yarn
-      #     cache-fingerprint: ${{ env.node-version }}-${{ hashFiles('yarn.lock') }}
-      #   with:
-      #     path: node_modules
-      #     key: ${{ runner.os }}-${{ env.cache-name }}-${{ env.cache-fingerprint }}
-      #     restore-keys: ${{ runner.os }}-${{ env.cache-name }}
-
-      - name: Yarn install
-        run: | 
-          cd ticketmeister
-          yarn install
-
+          cache: 'yarn'
       - name: Build app
         run: |
           cd ticketmeister
