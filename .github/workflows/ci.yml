@@ -39,19 +39,23 @@ jobs:
         with:
           node-version: 18.14.2
 
-      - name: node_modules cache
-        id: node-modules-cache
-        uses: actions/cache@v3
-        env:
-          cache-name: node-modules-yarn
-          cache-fingerprint: ${{ env.node-version }}-${{ hashFiles('yarn.lock') }}
+      - name: Cached yarn install
+        uses: c-hive/gha-yarn-cache@v2
         with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ env.cache-name }}-${{ env.cache-fingerprint }}
-          restore-keys: ${{ runner.os }}-${{ env.cache-name }}
+          directory: ./ticketmeister
+
+      # - name: node_modules cache
+      #   id: node-modules-cache
+      #   uses: actions/cache@v3
+      #   env:
+      #     cache-name: node-modules-yarn
+      #     cache-fingerprint: ${{ env.node-version }}-${{ hashFiles('yarn.lock') }}
+      #   with:
+      #     path: node_modules
+      #     key: ${{ runner.os }}-${{ env.cache-name }}-${{ env.cache-fingerprint }}
+      #     restore-keys: ${{ runner.os }}-${{ env.cache-name }}
 
       - name: Yarn install
-        # called at most once for the workflow by the "setup" job
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: | 
           cd ticketmeister
