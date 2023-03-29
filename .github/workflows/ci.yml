@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 18.14.2
           cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --immutable-cache
       - name: Build app
         run: yarn rw build
       - name: Run tests
