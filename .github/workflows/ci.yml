@@ -47,6 +47,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install Dependencies
-        run: npm install
-        working-directory: ./ticketmeister
+      - name: Install dependencies
+        run: |
+          cd ticketmeister
+          yarn install
+
+      - name: Build app
+        run: |
+          cd ticketmeister
+          yarn rw build
+      - name: Run tests
+        run: |
+          cd ticketmeister
+          yarn rw test
