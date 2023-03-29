@@ -33,8 +33,9 @@ jobs:
           cache: 'yarn'
       
       - name: Yarn install
+        if: steps.cache.outputs.cache-hit != 'true
         run: yarn install
-        
+
       - name: Build app
         run: yarn rw build
 
