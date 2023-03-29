@@ -53,7 +53,7 @@ jobs:
       - name: Yarn install
         # called at most once for the workflow by the "setup" job
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
-        run: yarn install --prefer-offline --frozen-lockfile
+        run: yarn install
 
       - name: Build app
         run: |
