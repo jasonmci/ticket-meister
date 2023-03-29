@@ -56,7 +56,6 @@ jobs:
       #     restore-keys: ${{ runner.os }}-${{ env.cache-name }}
 
       - name: Yarn install
-        if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: | 
           cd ticketmeister
           yarn install
