@@ -33,11 +33,7 @@ jobs:
           cache: 'yarn'
 
       - name: Build app
-        run: |
-          cd ticket-meister
-          yarn rw build
+        run: yarn rw build
 
       - name: Run tests
-        run: |
-          cd ticket-meister
-          yarn rw test
+        run: yarn rw test
