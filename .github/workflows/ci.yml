@@ -31,6 +31,7 @@ jobs:
         with:
           node-version: 18.14.2
           cache: 'yarn'
+          directory: ./ticketmeister
 
       - name: Build app
         run: |
