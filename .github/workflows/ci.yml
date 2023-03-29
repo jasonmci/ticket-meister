@@ -31,14 +31,13 @@ jobs:
         with:
           node-version: 18.14.2
           cache: 'yarn'
-          directory: ./ticketmeister
 
       - name: Build app
         run: |
-          cd ticketmeister
+          cd ticket-meister
           yarn rw build
 
       - name: Run tests
         run: |
-          cd ticketmeister
+          cd ticket-meister
           yarn rw test
