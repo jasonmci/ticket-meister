@@ -1,50 +1,25 @@
 name: CI
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Code
         uses: actions/checkout@v3
-
-      - name: Cache Node.js 18.14.2 and Yarn
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.npm
-            ~/.cache/yarn
-          key: ${{ runner.os }}-node-18.14.2-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-18.14.2-yarn-
-
-      - name: Install Node.js 18.14.2
+      - name: Install Node.js and its dependencies
         uses: actions/setup-node@v3
         with:
           node-version: 18.14.2
-      
-      - name: Yarn install
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: yarn install
-        
+          cache: 'yarn'
       - name: Build app
         run: yarn rw build
-
       - name: Run tests
         run: yarn rw test
