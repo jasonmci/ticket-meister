@@ -14140,18 +14140,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hot-shots@npm:^10.0.0":
-  version: 10.0.0
-  resolution: "hot-shots@npm:10.0.0"
-  dependencies:
-    unix-dgram: 2.x
-  dependenciesMeta:
-    unix-dgram:
-      optional: true
-  checksum: 36df688fcd6cb03d1da135b1959f7b0a39a8bd9bfec4d84508e3e73ed502b9d9fe2839ac2c99c6f380ce87d7987e66e990a3f4fa739a4529b75cb324cf890f90
-  languageName: node
-  linkType: hard
-
 "hpack.js@npm:^2.1.6":
   version: 2.1.6
   resolution: "hpack.js@npm:2.1.6"
@@ -17629,7 +17617,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nan@npm:^2.12.1, nan@npm:^2.16.0":
+"nan@npm:^2.12.1":
   version: 2.17.0
   resolution: "nan@npm:2.17.0"
   dependencies:
@@ -20843,7 +20831,6 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@redwoodjs/core": 4.4.2
-    hot-shots: ^10.0.0
   languageName: unknown
   linkType: soft
 
@@ -23316,17 +23303,6 @@ __metadata:
   version: 2.0.0
   resolution: "universalify@npm:2.0.0"
   checksum: 07092b9f46df61b823d8ab5e57f0ee5120c178b39609a95e4a15a98c42f6b0b8e834e66fbb47ff92831786193be42f1fd36347169b88ce8639d0f9670af24a71
-  languageName: node
-  linkType: hard
-
-"unix-dgram@npm:2.x":
-  version: 2.0.6
-  resolution: "unix-dgram@npm:2.0.6"
-  dependencies:
-    bindings: ^1.5.0
-    nan: ^2.16.0
-    node-gyp: latest
-  checksum: d3725a575a74803b625e3784e12d3edad2289e636938edf622c5c65b0437d6da3f73c393abe9ebeb6ad08d012e058683db965438d8f8eb73070e641d3f097128
   languageName: node
   linkType: hard
 
