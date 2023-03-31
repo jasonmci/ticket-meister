@@ -43,5 +43,9 @@ jobs:
       - run: yarn install
       - name: Build app
         run: yarn rw build
-      - name: Run tests
-        run: yarn rw test
+      - name: Run api tests
+        run: yarn rw test api --json --outputFile api-results.json
+      - name: Run web tests
+        run: yarn rw test web --json --outputFile web-results.json
+      - name: Update test results
+        run: ./test_stats.sh
