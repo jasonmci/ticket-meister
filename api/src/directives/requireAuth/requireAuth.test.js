@@ -1,11 +1,5 @@
 import { mockRedwoodDirective, getDirectiveName } from '@redwoodjs/testing/api'
 import requireAuth from './requireAuth'
-const HotShots = require('hot-shots');
-const client = new HotShots({
-  host: 'ec2-35-90-12-71.us-west-2.compute.amazonaws.com',
-  port: 8125,
-  prefix: 'myapp.test.',
-});
 
 describe('requireAuth directive', () => {
   it('declares the directive sdl as schema, with the correct name', () => {
