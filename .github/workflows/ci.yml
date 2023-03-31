@@ -29,7 +29,7 @@ jobs:
       - name: Get lines of code counter
         run: |
           chmod +x cloc_stats.sh
-          ./cloc_stats.sh
+          bash ./cloc_stats.sh
   build:
     runs-on: ubuntu-latest
     steps:
