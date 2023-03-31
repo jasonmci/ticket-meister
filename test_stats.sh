@@ -1,6 +1,4 @@
 #!/bin/sh
-cloc ./ . --exclude-dir=node_modules --json > cloc.json
-
 graphiteHost=ec2-35-90-12-71.us-west-2.compute.amazonaws.com
 graphitePort=8125
 repoName=ticketmeister
