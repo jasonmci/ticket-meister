@@ -9,6 +9,27 @@ on:
   workflow_dispatch:
 
 jobs:
+  loc-counter:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Get cloc version
+        run: echo "CLOC_VERSION=$(cloc --version)" >> $GITHUB_ENV
+      - name: Cache cloc binaries
+        uses: actions/cache@v3
+        id: cloc-cache
+        with:
+          path: /usr/bin/cloc
+          key: cloc-package-ubuntu-latest
+          restore-keys: cloc-package-${{ env.CLOC_VERSION }}
+      - name: Install cloc
+        run: sudo apt-get install -y cloc
+        if: steps.cloc-cache.outputs.cache-hit != 'true'
+      - name: Get lines of code counter
+        run: |
+          chmod +x cloc_stats.sh
+          ./cloc_stats.sh
   build:
     runs-on: ubuntu-latest
     steps:
