@@ -3942,6 +3942,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prisma/engines@npm:4.12.0":
+  version: 4.12.0
+  resolution: "@prisma/engines@npm:4.12.0"
+  checksum: b46710919776c60c88a09012fa9a1b78f58e2d3432469c87720dae4d7e812c14c4b42c720d2b33892f7ae9be7f4e8f1eb5675a77e7e7138f5dd4b38495a22495
+  languageName: node
+  linkType: hard
+
 "@prisma/fetch-engine@npm:4.11.0":
   version: 4.11.0
   resolution: "@prisma/fetch-engine@npm:4.11.0"
@@ -19610,6 +19617,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prisma@npm:latest":
+  version: 4.12.0
+  resolution: "prisma@npm:4.12.0"
+  dependencies:
+    "@prisma/engines": 4.12.0
+  bin:
+    prisma: build/index.js
+    prisma2: build/index.js
+  checksum: 50c576c5a2ff57555c8d10aaeae6bbea80bf40bfa1f313543d8db7ac28f2dea49fe64ad86ceda53f7505541c707dce6c5b664154b5a9be4fa8f5dd2e1cee200c
+  languageName: node
+  linkType: hard
+
 "process-nextick-args@npm:~2.0.0":
   version: 2.0.1
   resolution: "process-nextick-args@npm:2.0.1"
@@ -20831,6 +20850,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@redwoodjs/core": 4.4.2
+    prisma: latest
   languageName: unknown
   linkType: soft
 

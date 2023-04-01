@@ -16,6 +16,7 @@ model Location {
   state       String
   zip         String
   events      Event[]
+  seats       Seat[]
 }
 
 model Event {
@@ -25,4 +26,24 @@ model Event {
   location    Location @relation(fields: [locationId], references: [id])
   locationId  Int
   description String
+  tickets     Ticket[]
+}
+
+model Seat {
+  id          Int      @id @default(autoincrement())
+  section     String
+  row         String
+  number      String
+  location    Location @relation(fields: [locationId], references: [id])
+  locationId  Int
+  tickets     Ticket[]
+}
+
+model Ticket {
+  id          Int      @id @default(autoincrement())
+  seat        Seat    @relation(fields: [seatId], references: [id])
+  seatId      Int
+  event       Event   @relation(fields: [eventId], references: [id])
+  eventId     Int
+  price       Decimal
 }
