@@ -32,23 +32,23 @@ describe('tickets', () => {
       input: {
         seatId: scenario.ticket.two.seatId,
         eventId: scenario.ticket.two.eventId,
-        price: 902052.2285157462,
+        price: 11.33,
       },
     })
 
     expect(result.seatId).toEqual(scenario.ticket.two.seatId)
     expect(result.eventId).toEqual(scenario.ticket.two.eventId)
-    expect(result.price).toEqual(new Prisma.Decimal(902052.2285157462))
+    expect(result.price).toEqual(new Prisma.Decimal(11.33))
   })
 
   scenario('updates a ticket', async (scenario) => {
     const original = await ticket({ id: scenario.ticket.one.id })
     const result = await updateTicket({
       id: original.id,
-      input: { price: 1487232.3396620636 },
+      input: { price: 10.00 },
     })
 
-    expect(result.price).toEqual(new Prisma.Decimal(1487232.3396620636))
+    expect(result.price).toEqual(new Prisma.Decimal(10.00))
   })
 
   scenario('deletes a ticket', async (scenario) => {
